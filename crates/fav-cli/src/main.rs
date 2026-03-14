@@ -28,7 +28,7 @@ enum Commands {
         url: String,
 
         /// Categories in order (e.g. -c Android -c Apps -c Store)
-        #[arg(short, long, action = clap::ArgAction::Append, required = true)]
+        #[arg(short, long, alias = "category", action = clap::ArgAction::Append, required = true)]
         categories: Vec<String>,
 
         /// Tags (can be repeated or comma-separated)
