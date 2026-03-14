@@ -18,17 +18,17 @@ struct Cli {
 enum Commands {
     /// Add a new favorite
     Add {
-        #[arg(short, long)]
+        #[arg(short = 't', long)]
         title: String,
 
-        #[arg(short, long)]
+        #[arg(short = 'd', long)]
         description: String,
 
-        #[arg(short, long)]
+        #[arg(short = 'u', long)]
         url: String,
 
         /// Category path (e.g. "Android/Apps/Store")
-        #[arg(short, long)]
+        #[arg(short = 'p', long)]
         path: Option<String>,
 
         /// Individual categories in order (can be repeated)
@@ -36,7 +36,7 @@ enum Commands {
         categories: Vec<String>,
 
         /// Tags (can be repeated or comma-separated)
-        #[arg(short, long, action = clap::ArgAction::Append, value_delimiter = ',')]
+        #[arg(short = 'T', long, action = clap::ArgAction::Append, value_delimiter = ',')]
         tags: Option<Vec<String>>,
     },
     /// List all favorites
