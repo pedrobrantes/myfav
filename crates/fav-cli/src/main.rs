@@ -84,6 +84,29 @@ fn main() -> anyhow::Result<()> {
             }
             std::fs::write(&dist, json)?;
             println!("Generated {}", dist.display());
+
+            // Git commit
+            let status = std::process::Command::new("git")
+                .arg("add")
+                .arg(&cli.data)
+                .arg(&readme)
+                .arg(&dist)
+                .status();
+            
+            if let Ok(s) = status {
+                if s.success() {
+                    let commit = std::process::Command::new("git")
+                        .arg("commit")
+                        .arg("-m")
+                        .arg("docs(sync): update README and favorites distribution")
+                        .status();
+                    if let Ok(cs) = commit {
+                        if cs.success() {
+                            println!("Committed changes to git.");
+                        }
+                    }
+                }
+            }
         }
     }
 
