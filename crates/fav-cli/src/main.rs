@@ -27,8 +27,12 @@ enum Commands {
         #[arg(short, long)]
         url: String,
 
-        /// Categories in order (e.g. -c Android -c Apps -c Store)
-        #[arg(short, long, alias = "category", action = clap::ArgAction::Append, required = true)]
+        /// Category path (e.g. "Android/Apps/Store")
+        #[arg(short, long)]
+        path: Option<String>,
+
+        /// Individual categories in order (can be repeated)
+        #[arg(short = 'c', long = "category", action = clap::ArgAction::Append)]
         categories: Vec<String>,
 
         /// Tags (can be repeated or comma-separated)
@@ -52,12 +56,21 @@ fn main() -> anyhow::Result<()> {
     let repo = JsonRepository::new(&cli.data);
 
     match cli.command {
-        Commands::Add { title, description, url, categories, tags } => {
+        Commands::Add { title, description, url, path, categories, tags } => {
+            let mut final_categories = categories;
+            if let Some(p) = path {
+                final_categories.extend(p.split('/').map(|s| s.trim().to_string()).filter(|s| !s.is_empty()));
+            }
+
+            if final_categories.is_empty() {
+                return Err(anyhow::anyhow!("At least one category is required (use --path or --category)"));
+            }
+
             let favorite = Favorite {
                 title,
                 description,
                 url,
-                categories,
+                categories: final_categories,
                 tags: tags.unwrap_or_default(),
             };
             repo.add(favorite)?;
