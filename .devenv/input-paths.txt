@@ -1,0 +1,7 @@
+/home/brantes/fav-cli/.devenv/flake.json
+/home/brantes/fav-cli/.devenv.flake.nix
+/home/brantes/fav-cli/.env
+/home/brantes/fav-cli/devenv.local.nix
+/home/brantes/fav-cli/devenv.lock
+/home/brantes/fav-cli/devenv.nix
+/home/brantes/fav-cli/devenv.yaml
