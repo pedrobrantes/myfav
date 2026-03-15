@@ -105,30 +105,11 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1d07550c9036bf2ae0c684c4297d503f838287c83c53686d05370d0e139ae570"
 
 [[package]]
-name = "fav-cli"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "clap",
- "fav-core",
- "fav-output",
-]
-
-[[package]]
-name = "fav-core"
+name = "core"
 version = "0.1.0"
 dependencies = [
  "anyhow",
  "serde",
- "serde_json",
-]
-
-[[package]]
-name = "fav-output"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "fav-core",
  "serde_json",
 ]
 
@@ -157,10 +138,31 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f8ca58f447f06ed17d5fc4043ce1b10dd205e060fb3ce5b979b8ed8e59ff3f79"
 
 [[package]]
+name = "myfav"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "clap",
+ "core",
+ "output",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "once_cell_polyfill"
 version = "1.70.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "384b8ab6d37215f3c5301a95a4accb5d64aa607f1fcb26a11b5303878451b4fe"
+
+[[package]]
+name = "output"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "core",
+ "serde_json",
+]
 
 [[package]]
 name = "proc-macro2"

@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Final Test",
+    "description": "Testing no-commit",
+    "url": "http://test.com",
+    "categories": [
+      "Test"
+    ],
+    "tags": [],
+    "deprecated": false,
+    "alternative": null,
+    "icon": null
+  }
+]

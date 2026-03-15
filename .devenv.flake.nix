@@ -4,12 +4,12 @@
       vars = {
   version = "1.11.1";
   system = "aarch64-linux";
-  devenv_root = "/home/brantes/fav-cli";
-  project_input_ref = "path:/home/brantes/fav-cli";
-  devenv_dotfile = "/home/brantes/fav-cli/.devenv";
+  devenv_root = "/home/brantes/myfav";
+  project_input_ref = "path:/home/brantes/myfav";
+  devenv_dotfile = "/home/brantes/myfav/.devenv";
   devenv_dotfile_path = ./.devenv;
   devenv_tmpdir = "/tmp";
-  devenv_runtime = "/tmp/devenv-de9b0e6";
+  devenv_runtime = "/tmp/devenv-f8dd2e8";
   devenv_istesting = false;
   devenv_direnvrc_latest_version = 1;
   container_name = null;
@@ -17,7 +17,7 @@
   ];
   hostname = "localhost";
   username = "brantes";
-  git_root = "/home/brantes/fav-cli";
+  git_root = "/home/brantes/myfav";
   secretspec = null;
 };
     in
@@ -41,12 +41,12 @@
       vars = {
   version = "1.11.1";
   system = "aarch64-linux";
-  devenv_root = "/home/brantes/fav-cli";
-  project_input_ref = "path:/home/brantes/fav-cli";
-  devenv_dotfile = "/home/brantes/fav-cli/.devenv";
+  devenv_root = "/home/brantes/myfav";
+  project_input_ref = "path:/home/brantes/myfav";
+  devenv_dotfile = "/home/brantes/myfav/.devenv";
   devenv_dotfile_path = ./.devenv;
   devenv_tmpdir = "/tmp";
-  devenv_runtime = "/tmp/devenv-de9b0e6";
+  devenv_runtime = "/tmp/devenv-f8dd2e8";
   devenv_istesting = false;
   devenv_direnvrc_latest_version = 1;
   container_name = null;
@@ -54,7 +54,7 @@
   ];
   hostname = "localhost";
   username = "brantes";
-  git_root = "/home/brantes/fav-cli";
+  git_root = "/home/brantes/myfav";
   secretspec = null;
 };
       devenv =
