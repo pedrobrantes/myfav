@@ -2,9 +2,9 @@ mod args;
 mod git;
 mod handlers;
 
+use args::Cli;
 use clap::Parser;
 use core::JsonRepository;
-use args::Cli;
 use handlers::handle_command;
 
 fn main() -> anyhow::Result<()> {

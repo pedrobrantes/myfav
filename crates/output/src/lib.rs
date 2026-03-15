@@ -9,7 +9,7 @@ const END_MARKER: &str = "<!-- END_FAVORITES -->";
 impl MarkdownFormatter {
     pub fn format(favorites: &[Favorite], existing_content: Option<String>) -> String {
         let tree = Self::build_category_tree(favorites);
-        
+
         let mut favorites_block = String::new();
         favorites_block.push_str("## Table of Contents\n\n");
         favorites_block.push_str(&Self::render_toc(&tree, 0));
@@ -38,7 +38,10 @@ impl MarkdownFormatter {
         let mut output = String::new();
         let indent = "  ".repeat(level);
         for (name, node) in tree {
-            let anchor = name.to_lowercase().replace(' ', "-").replace(|c: char| !c.is_alphanumeric() && c != '-', "");
+            let anchor = name
+                .to_lowercase()
+                .replace(' ', "-")
+                .replace(|c: char| !c.is_alphanumeric() && c != '-', "");
             output.push_str(&format!("{}- [{}](#{})\n", indent, name, anchor));
             output.push_str(&Self::render_toc(&node.subcategories, level + 1));
         }
@@ -68,19 +71,34 @@ impl MarkdownFormatter {
 
         for (name, node) in tree {
             output.push_str(&format!("{} {}\n\n", header_prefix, name));
-            
+
             for fav in &node.favorites {
                 let status = if fav.deprecated { " [DEPRECATED]" } else { "" };
-                let icon_str = fav.icon.as_deref().map(|i| format!("{} ", i)).unwrap_or_default();
-                output.push_str(&format!("- {}[{}]({}){} - {}\n", icon_str, fav.title, fav.url, status, fav.description));
+                let icon_str = fav
+                    .icon
+                    .as_deref()
+                    .map(|i| format!("{} ", i))
+                    .unwrap_or_default();
+                output.push_str(&format!(
+                    "- {}[{}]({}){} - {}\n",
+                    icon_str, fav.title, fav.url, status, fav.description
+                ));
                 if let Some(alt) = &fav.alternative {
                     output.push_str(&format!("  *Alternative: {}*\n", alt));
                 }
                 if !fav.tags.is_empty() {
-                    let badges = fav.tags.iter().map(|t| {
-                        let tag_clean = t.replace('-', "--").replace(' ', "_");
-                        format!("![{}](https://img.shields.io/badge/{}-blue?style=flat-square)", t, tag_clean)
-                    }).collect::<Vec<String>>().join(" ");
+                    let badges = fav
+                        .tags
+                        .iter()
+                        .map(|t| {
+                            let tag_clean = t.replace('-', "--").replace(' ', "_");
+                            format!(
+                                "![{}](https://img.shields.io/badge/{}-blue?style=flat-square)",
+                                t, tag_clean
+                            )
+                        })
+                        .collect::<Vec<String>>()
+                        .join(" ");
                     output.push_str(&format!("  {}\n", badges));
                 }
             }
