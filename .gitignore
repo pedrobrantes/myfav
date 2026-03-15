@@ -1,0 +1,7 @@
+/target
+/data
+/dist
+/.devenv
+/.envrc
+/devenv.lock
+/Cargo.lock
