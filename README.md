@@ -16,7 +16,7 @@ A modular Rust CLI to manage and distribute your favorites/recommendations.
 ### Using Cargo
 
 ```bash
-cargo install myfav-cli
+cargo install myfav
 ```
 
 ### Using Nix

@@ -21,7 +21,7 @@ jobs:
         env:
           CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
       - name: Publish CLI
-        run: cargo publish -p myfav-cli
+        run: cargo publish -p myfav
         env:
           CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
 
@@ -62,9 +62,9 @@ jobs:
       - name: Build
         run: |
           if [ "${{ matrix.use-cross }}" = "true" ]; then
-            cross build --release --target ${{ matrix.target }} -p myfav-cli
+            cross build --release --target ${{ matrix.target }} -p myfav
           else
-            cargo build --release --target ${{ matrix.target }} -p myfav-cli
+            cargo build --release --target ${{ matrix.target }} -p myfav
           fi
         shell: bash
       
@@ -73,17 +73,17 @@ jobs:
         run: |
           if [ "${{ matrix.os }}" = "windows-latest" ]; then
             cd target/${{ matrix.target }}/release
-            7z a ../../../myfav-cli-${{ matrix.target }}.zip myfav-cli.exe
+            7z a ../../../myfav-${{ matrix.target }}.zip myfav.exe
           else
             cd target/${{ matrix.target }}/release
-            tar czf ../../../myfav-cli-${{ matrix.target }}.tar.gz myfav-cli
+            tar czf ../../../myfav-${{ matrix.target }}.tar.gz myfav-cli
           fi
           
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: myfav-cli-${{ matrix.target }}
-          path: myfav-cli-${{ matrix.target }}.*
+          name: myfav-${{ matrix.target }}
+          path: myfav-${{ matrix.target }}.*
 
   github-release:
     name: Create GitHub Release
@@ -106,7 +106,7 @@ jobs:
             
             ### Via Cargo
             ```bash
-            cargo install myfav-cli
+            cargo install myfav
             ```
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
