@@ -76,7 +76,7 @@ jobs:
             7z a ../../../myfav-${{ matrix.target }}.zip myfav.exe
           else
             cd target/${{ matrix.target }}/release
-            tar czf ../../../myfav-${{ matrix.target }}.tar.gz myfav-cli
+            tar czf ../../../myfav-${{ matrix.target }}.tar.gz myfav
           fi
           
       - name: Upload Artifacts
@@ -95,11 +95,11 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with:
-          pattern: myfav-cli-*
+          pattern: myfav-*
           merge-multiple: true
       - uses: softprops/action-gh-release@v1
         with:
-          files: myfav-cli-*
+          files: myfav-*
           generate_release_notes: true
           body: |
             ## Installation
