@@ -4,7 +4,7 @@ mod handlers;
 
 use args::Cli;
 use clap::Parser;
-use myfav_myfav_core::JsonRepository;
+use myfav_core::JsonRepository;
 use handlers::handle_command;
 
 fn main() -> anyhow::Result<()> {

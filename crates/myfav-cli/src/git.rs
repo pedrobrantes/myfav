@@ -1,7 +1,7 @@
 use crate::args::Cli;
-use core::FavoriteRepository;
-use core::JsonRepository;
-use myfav_myfav_output::{JsonDistributionFormatter, MarkdownFormatter};
+use myfav_core::FavoriteRepository;
+use myfav_core::JsonRepository;
+use myfav_output::{JsonDistributionFormatter, MarkdownFormatter};
 use std::process::Command;
 
 pub fn sync_and_commit(cli: &Cli, repo: &JsonRepository, commit_msg: &str) -> anyhow::Result<()> {

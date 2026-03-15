@@ -1,4 +1,4 @@
-use myfav_myfav_core::Favorite;
+use myfav_core::Favorite;
 use std::collections::BTreeMap;
 
 pub struct MarkdownFormatter;
@@ -49,7 +49,7 @@ impl MarkdownFormatter {
     }
 
     fn build_category_tree(favorites: &[Favorite]) -> BTreeMap<String, CategoryNode> {
-        let mut root = BTreeMap::new();
+        let mut root: BTreeMap<String, CategoryNode> = BTreeMap::new();
         for fav in favorites {
             let mut current_level = &mut root;
             for (i, cat) in fav.categories.iter().enumerate() {
@@ -90,7 +90,7 @@ impl MarkdownFormatter {
                     let badges = fav
                         .tags
                         .iter()
-                        .map(|t| {
+                        .map(|t: &String| {
                             let tag_clean = t.replace('-', "--").replace(' ', "_");
                             format!(
                                 "![{}](https://img.shields.io/badge/{}-blue?style=flat-square)",
