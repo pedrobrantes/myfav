@@ -1,8 +1,8 @@
-# fav
+# myfav
 
 A modular Rust CLI to manage and distribute your favorites/recommendations.
 
-`fav` allows you to maintain a "source of truth" for your recommendations in a structured JSON format and automatically distribute them to multiple outputs, such as a hierarchical `README.md` and a consolidated distribution JSON for external consumption (e.g., blogs, mobile apps).
+`myfav` allows you to maintain a "source of truth" for your recommendations in a structured JSON format and automatically distribute them to multiple outputs, such as a hierarchical `README.md` and a consolidated distribution JSON for external consumption (e.g., blogs, mobile apps).
 
 ## Features
 
@@ -10,14 +10,13 @@ A modular Rust CLI to manage and distribute your favorites/recommendations.
 - **Surgical Updates:** Automatically updates your `README.md` between markers, preserving manual edits.
 - **Smart Git Integration:** Optional automated commits with descriptive messages (`feat`, `chore`, `fix`).
 - **Distribution Ready:** Generates a clean JSON file ready for your frontend.
-- **Minimalist:** Clean code, no emojis by default, focused on maintenance.
 
 ## Installation
 
 ### Using Cargo
 
 ```bash
-cargo install --path crates/cli
+cargo install myfav
 ```
 
 ### Using Nix
