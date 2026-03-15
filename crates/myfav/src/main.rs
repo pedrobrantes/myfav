@@ -4,8 +4,8 @@ mod handlers;
 
 use args::Cli;
 use clap::Parser;
-use myfav_core::JsonRepository;
 use handlers::handle_command;
+use myfav_core::JsonRepository;
 
 fn main() -> anyhow::Result<()> {
     let cli = Cli::parse();

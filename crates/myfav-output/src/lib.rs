@@ -53,9 +53,7 @@ impl MarkdownFormatter {
         for fav in favorites {
             let mut current_level = &mut root;
             for (i, cat) in fav.categories.iter().enumerate() {
-                let node = current_level
-                    .entry(cat.clone())
-                    .or_insert_with(CategoryNode::default);
+                let node = current_level.entry(cat.clone()).or_default();
                 if i == fav.categories.len() - 1 {
                     node.favorites.push(fav.clone());
                 }
