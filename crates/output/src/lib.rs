@@ -91,10 +91,16 @@ impl MarkdownFormatter {
                         .tags
                         .iter()
                         .map(|t: &String| {
-                            let tag_clean = t.replace('-', "--").replace(' ', "_");
+                            let (tag_name, color) = if t.contains(':') {
+                                let mut parts = t.splitn(2, ':');
+                                (parts.next().unwrap_or(t), parts.next().unwrap_or("brown"))
+                            } else {
+                                (t.as_str(), "brown")
+                            };
+                            let tag_clean = tag_name.replace('-', "--").replace(' ', "_");
                             format!(
-                                "![{}](https://img.shields.io/badge/{}-blue?style=flat-square)",
-                                t, tag_clean
+                                "![{}](https://img.shields.io/badge/{}-{}?style=for-the-badge)",
+                                tag_name, tag_clean, color
                             )
                         })
                         .collect::<Vec<String>>()

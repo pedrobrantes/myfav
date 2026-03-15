@@ -1,19 +1,11 @@
-# Release Notes - v0.1.0
+# Release Notes - v0.2.0
 
-## Initial Release
+## Features & Enhancements
 
-Modular Rust CLI to manage and distribute your favorites/recommendations.
+- **Dynamic Tag Colors:** Tags now support custom colors via  syntax.
+- **Improved Badge Style:** Default badge style is now  (rounded) with  as the default color.
 
-### Features
-- **Modular Monolith Architecture**: Separated into `core`, `output`, and `myfav` (CLI) crates.
-- **Hierarchical Categories**: Support for paths like `Android/Apps/Store`.
-- **Surgical README Updates**: Automatic updates between `<!-- START_FAVORITES -->` and `<!-- END_FAVORITES -->` markers.
-- **Table of Contents**: Automatically generated clickable index in Markdown.
-- **Smart Git Integration**: Optional automated commits with conventional messages (`feat`, `chore`, `fix`).
-- **Distribution Ready**: Generates `dist/favorites.json` for external consumption.
-- **Minimalist Design**: Clean code, no emojis by default, professional Shields.io badges for tags.
-
-### Installation
-```bash
-cargo install myfav
-```
+## Fixes
+- Fixed CI failures related to  and .
+- Added a  to prevent tracking of build and data files in the main repo.
+- Renamed project to  and modularized the CLI crate.
