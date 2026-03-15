@@ -1,6 +1,6 @@
 [package]
 name = "myfav-core"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["Pedro Brantes <contact@brantes.simplelogin.com>"]
 description = "Core domain models and repository logic for myfav."
