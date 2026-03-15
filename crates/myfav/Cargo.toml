@@ -3,10 +3,10 @@ name = "myfav"
 version = "0.2.0"
 edition = "2021"
 authors = ["Pedro Brantes <contact@brantes.simplelogin.com>"]
-description = "A modular Rust CLI to manage and distribute your favorites/recommendations."
+description = "A simple Rust CLI to manage and distribute your favorites/recommendations."
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/pedrobrantes/myfav"
-keywords = ["cli", "favorites", "recommendations", "modular", "markdown"]
+keywords = ["cli", "favorites", "recommendations", "json", "markdown"]
 categories = ["command-line-utilities"]
 
 [dependencies]
