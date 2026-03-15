@@ -1,6 +1,6 @@
 use crate::args::{Cli, Commands};
 use crate::git::sync_and_commit;
-use core::{Favorite, FavoriteRepository, JsonRepository};
+use myfav_core::{Favorite, FavoriteRepository, JsonRepository};
 
 pub fn handle_command(cli: &Cli, repo: &JsonRepository) -> anyhow::Result<()> {
     match cli.command {

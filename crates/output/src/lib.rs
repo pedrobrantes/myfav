@@ -1,4 +1,4 @@
-use core::Favorite;
+use myfav_myfav_core::Favorite;
 use std::collections::BTreeMap;
 
 pub struct MarkdownFormatter;

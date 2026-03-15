@@ -1,5 +1,5 @@
 [package]
-name = "output"
+name = "myfav-output"
 version = "0.1.0"
 edition = "2021"
 authors = ["Pedro Brantes <contact@brantes.simplelogin.com>"]
@@ -8,6 +8,6 @@ license = "MIT OR Apache-2.0"
 repository = "https://github.com/pedrobrantes/myfav"
 
 [dependencies]
-core = { path = "../core", version = "0.1.0" }
+myfav-core = { path = "../core", version = "0.1.0" }
 anyhow = "1.0.102"
 serde_json = "1.0.149"
